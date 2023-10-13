@@ -11,6 +11,7 @@
     import {goto} from "$app/navigation";
     import { createLabel, melt } from '@melt-ui/svelte';
     import {createEventDispatcher} from "svelte";
+    import {Loader2} from 'lucide-svelte';
 
     const {
         elements: { root },
@@ -18,19 +19,22 @@
 
     let email = '';
     let password = '';
+    let isLoading: boolean = false;
 
-    const _login = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 
     async function handleLogin(event: Event) {
         event.preventDefault();
+        isLoading = true;
         const formData: LoginFormData = {email, password};
         const { data, error } = await auth.login(formData);
         if (error) {
+            isLoading = false;
             return;
         }
         if (data.session && data.user) {
             console.log(data.session)
-            _login('login')
+            dispatch('logged')
             // loginSuccessful()
             // console.log(await auth.setSession(data.session.access_token, data.session.refresh_token));
             goto('/events')
@@ -75,7 +79,11 @@
         />
     </div>
     <button type="submit" class="font-bold px-4 py-2 rounded bg-accent text-background">
-        Login
+        {#if isLoading}
+            <Loader2 class="animate-spin"/>
+        {:else}
+            <span>Login</span>
+        {/if}
     </button>
 </form>
 <div class="font-medium">

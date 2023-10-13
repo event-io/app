@@ -1,14 +1,16 @@
 <script type="ts">
     import LoginForm from "$components/LoginForm.svelte";
-    import { addToast } from "$components/Toast.svelte";
+    import { addToast } from "$components/Toaster.svelte";
 
-    const onLogged = addToast({
-        data: {
-            title: 'Welcome! 👋',
-            description: "You will be redirected in a few seconds...",
-            color: 'bg-success',
-        }
-    })
+    function onLoggedHandler() {
+        addToast({
+            data: {
+                title: 'Welcome! 👋',
+                description: "You will be redirected in a few seconds...",
+                color: 'bg-success',
+            }
+        })
+    }
 </script>
 
-<LoginForm on:logged={onLogged}/>
+<LoginForm on:logged={onLoggedHandler}/>
