@@ -9,8 +9,8 @@
 <script lang="ts">
     import auth from "$lib/auth.ts";
     import {goto} from "$app/navigation";
-    import { addToast } from '$components/Toaster.svelte'
     import { createLabel, melt } from '@melt-ui/svelte';
+    import {createEventDispatcher} from "svelte";
 
     const {
         elements: { root },
@@ -19,29 +19,22 @@
     let email = '';
     let password = '';
 
+    const _login = createEventDispatcher();
+
     async function handleLogin(event: Event) {
         event.preventDefault();
         const formData: LoginFormData = {email, password};
         const { data, error } = await auth.login(formData);
         if (error) {
-            console.log(error);
             return;
         }
         if (data.session && data.user) {
-            loginSuccessful()
+            console.log(data.session)
+            _login('login')
+            // loginSuccessful()
+            // console.log(await auth.setSession(data.session.access_token, data.session.refresh_token));
             goto('/events')
         }
-    }
-
-
-    function loginSuccessful() {
-        addToast({
-            data: {
-                title: 'Welcome back! 👋',
-                description: "You will be redirected in a few seconds...",
-                color: 'bg-success',
-            }
-        })
     }
 </script>
 

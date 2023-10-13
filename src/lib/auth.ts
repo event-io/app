@@ -25,6 +25,11 @@ export default {
         if (error) throw error
         return data
     },
+    async setSession(accessToken: string, refreshToken: string) {
+      const { data, error } = await supabase.auth.setSession({accessToken, refreshToken})
+        if (error) throw error
+        return data
+    },
     async getSession() {
         const {data, error} = await supabase.auth.getSession()
         if (error) throw error
