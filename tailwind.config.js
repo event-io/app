@@ -12,6 +12,10 @@ export default {
       success: '#2fd033',      // Green
       text: '#333333',         // Dark Gray
       highlight: '#FFC107',    // Yellow
+    },
+    fontFamily: {
+      header: ['Lilita One', 'sans-serif'],
+      body: ['Poppins'],
     }
   },
   plugins: [],
