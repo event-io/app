@@ -4,10 +4,10 @@
     import Header from "$components/Header.svelte";
 </script>
 
-<Toaster/>
-<div style="height: 100svh" class="bg-background h-full font-['Poppins']">
+<div style="height: 100svh" class="wrapped bg-background h-full font-body">
+    <Toaster/>
     <Header/>
-    <div class="p-10">
+    <div class="mx-40 my-5">
         <slot />
     </div>
 </div>
