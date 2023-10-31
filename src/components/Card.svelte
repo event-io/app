@@ -1,9 +1,20 @@
-<script type="ts">
-    export let title;
-    export let href;
+<script lang="ts">
+    import * as Card from "$lib/components/ui/card";
+    export let title: string;
+    export let href: string;
 </script>
 
-<a class="block bg-white border-2 p-4 my-4 hover:drop-shadow-md" href="{href}">
-    <p class="text-xl font-extrabold mb-2 text-secondary">{title}</p>
-    <slot/>
+<a href={href}>
+    <Card.Root>
+        <Card.Header>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Description>Card Description</Card.Description>
+        </Card.Header>
+        <Card.Content>
+            <p>Card Content</p>
+        </Card.Content>
+        <Card.Footer>
+            <p>Card Footer</p>
+        </Card.Footer>
+    </Card.Root>
 </a>

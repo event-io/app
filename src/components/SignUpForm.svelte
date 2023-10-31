@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-    import auth from "$lib/auth.ts";
+    import auth from "$lib/api/auth.ts";
     import {goto} from "$app/navigation";
     import { createLabel, melt } from '@melt-ui/svelte';
 
