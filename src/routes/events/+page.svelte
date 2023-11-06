@@ -5,4 +5,6 @@
     export let data: PageData
 </script>
 
-<EventList events={data.events}/>
+<div class="m-6">
+    <EventList events={data.events}/>
+</div>

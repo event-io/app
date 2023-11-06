@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-    import auth from "$lib/api/auth.ts";
+    import auth from "$lib/api/auth";
     import {goto} from "$app/navigation";
     import { createLabel, melt } from '@melt-ui/svelte';
     import {createEventDispatcher} from "svelte";
@@ -26,8 +26,7 @@
     async function handleLogin(event: Event) {
         event.preventDefault();
         isLoading = true;
-        const formData: LoginFormData = {email, password};
-        const { data, error } = await auth.login(formData);
+        const { data, error } = await auth.login(email, password);
         if (error) {
             isLoading = false;
             return;
@@ -35,8 +34,6 @@
         if (data.session && data.user) {
             console.log(data.session)
             dispatch('logged')
-            // loginSuccessful()
-            // console.log(await auth.setSession(data.session.access_token, data.session.refresh_token));
             goto('/events')
         }
     }

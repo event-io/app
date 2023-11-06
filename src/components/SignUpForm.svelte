@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-    import auth from "$lib/api/auth.ts";
+    import auth from "$lib/api/auth";
     import {goto} from "$app/navigation";
     import { createLabel, melt } from '@melt-ui/svelte';
 
@@ -16,9 +16,9 @@
         elements: { root },
     } = createLabel();
 
-    let name = '';
-    let email = '';
-    let password = '';
+    let name: string = '';
+    let email: string = '';
+    let password: string = '';
 
     async function handleSignup(event: Event) {
         event.preventDefault();
