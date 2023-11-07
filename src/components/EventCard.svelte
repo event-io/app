@@ -1,24 +1,23 @@
 <script lang="ts">
-    import * as Card from "$lib/components/ui/card";
+	import type { Event } from "$lib/interfaces/event.interface";
 
-    export let event: {
-        id: number,
-        name: string,
-        description: string,
-        place: string,
-        event_date_start: Date,
-        event_date_end: Date,
-    } | null = null;
+    export let event: Event | null = null;
 
 </script>
 
-<div class="w-[250px] h-[300px] relative">
-    <img 
-    alt="Card Content"
-    class="w-full h-full object-cover rounded-xl shadow"
-    src="https://upload.wikimedia.org/wikipedia/commons/6/65/Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg">
-    <div class="absolute bottom-4 bg-white bg-opacity-90 py-2 px-3 left-4 right-4 rounded-lg shadow">
-        <p class="font-bold">{ event?.name }</p>
-        <p class="text-sm">{ event?.description }</p>
-    </div>
+<div class="w-[280px] h-[400px] relative">
+    <a href="/events/{event?.id}">
+        <img 
+        alt="Card Content"
+        class="w-full h-full object-cover rounded-xl shadow"
+        src="{ event?.thumbnail_url }">
+        <div class="absolute top-2 right-2 px-3 py-2  bg-white rounded-xl shadow">
+            <span class="font-bold text-sm">{ event?.date_start ? (new Date(event.date_start)).getDate() : "" }</span>
+            <span class="text-sm">{ event?.date_start ? (new Date(event.date_start)).toLocaleDateString('default', { month: 'short' }) : "" }</span>
+        </div>
+        <div class="absolute text-white bottom-2 left-2 right-2 py-2 px-3">
+            <p class="font-bold">{ event?.name }</p>
+            <p class="">{ event?.description }</p>
+        </div>
+    </a>
 </div>

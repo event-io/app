@@ -3,7 +3,6 @@
 
     import type {PageData} from "./$types";
     import BackButton from "$components/BackButton.svelte";
-    import Card from "$components/Card.svelte";
     import Chip from "$components/Chip.svelte";
 
     export let data: PageData;
@@ -12,7 +11,7 @@
 
 <BackButton/>
 <div class="event-page mt-2">
-    <Card title="{data.event.name}">
+    <!-- <Card title="{data.event.name}">
         <p>Description: {data.event.description}</p>
         <p>Location: {data.event.place}</p>
         <p>Date: {data.event.event_date_start} to {data.event.event_date_end}</p>
@@ -28,7 +27,7 @@
                 <Chip text="{category.name}" color="highlight"/>
             {/each}
         </div>
-    </Card>
+    </Card> -->
 
     <div class="organizer-card">
         <h2>Organizer Details</h2>

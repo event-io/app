@@ -5,7 +5,7 @@
     import Sidebar from "$components/sidebar.svelte";
 </script>
 
-<div style="height: 100svh" class="wrapped bg-muted h-full font-body">
+<div style="height: 100svh" class="wrapped bg-background h-full font-body">
     <Toaster/>
     <Header/>
     <div class="grid lg:grid-cols-6">
