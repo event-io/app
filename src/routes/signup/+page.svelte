@@ -1,5 +1,5 @@
 <script>
-    import SignUpForm from "$components/SignUpForm.svelte";
+    import SignUpForm from "$components/sign-up-form.svelte";
 </script>
 
 <SignUpForm />

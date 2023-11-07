@@ -4,7 +4,7 @@
     import {onMount} from "svelte";
     import {goto} from "$app/navigation";
 
-    import { addToast } from '$components/Toaster.svelte'
+    import { addToast } from '$components/toaster.svelte'
 
 
     export let data: PageData;

@@ -2,8 +2,8 @@
 <script lang="ts">
 
     import type {PageData} from "./$types";
-    import BackButton from "$components/BackButton.svelte";
-    import Chip from "$components/Chip.svelte";
+    import BackButton from "$components/back-button.svelte";
+    import Chip from "$components/chip.svelte";
 
     export let data: PageData;
 

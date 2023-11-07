@@ -1,6 +1,6 @@
 <script lang="ts">
     import "../app.css";
-    import Toaster from "$components/Toaster.svelte";
+    import Toaster from "$components/toaster.svelte";
     import Header from "$components/header.svelte";
     import Sidebar from "$components/sidebar.svelte";
 </script>
@@ -11,7 +11,7 @@
     <div class="grid lg:grid-cols-6">
         <Sidebar/>
         <div class="col-span-3 lg:col-span-5 h-full">
-            <div class="h-full px-4 py-6 lg:px-8 h-full">
+            <div class="h-full px-4 py-6 lg:px-8 m-10">
                 <slot />
             </div>
         </div>

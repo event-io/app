@@ -1,6 +1,5 @@
 <script lang="ts">
-    import EventCard from "$components/event-card.svelte";
-
+	import EventCardOrg from "$components/event-card-org.svelte";
     import type {PageData} from "$types";
 
     export let data: PageData
@@ -13,9 +12,9 @@
     <p class="leading-7">
         Lista degli eventi
     </p>
-    <div class="flex justify-center space-x-4 mt-4 p-10 rounded-xl bg-white h-full">
+    <div class="space-y-4 mt-4 p-10 rounded-xl bg-white h-full">
         {#each data.events as event (event.id)}
-            <EventCard {event}/>
+            <EventCardOrg {event}/>
         {/each}
     </div>
 </section>
