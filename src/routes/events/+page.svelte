@@ -1,10 +1,14 @@
 <script lang="ts">
-    import EventList from "$components/EventList.svelte";
+    import EventCard from "$components/EventCard.svelte";
+
     import type {PageData} from "$types";
 
     export let data: PageData
 </script>
 
-<div class="m-6">
-    <EventList events={data.events}/>
+<div class="flex justify-center space-x-4 p-6 rounded-xl bg-white h-full">
+    {#each data.events as event (event.id)}
+        <EventCard {event}/>
+    {/each}
 </div>
+

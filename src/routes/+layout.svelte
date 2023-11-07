@@ -10,8 +10,8 @@
     <Header/>
     <div class="grid lg:grid-cols-6">
         <Sidebar/>
-        <div class="col-span-3 lg:col-span-5">
-            <div class="h-full px-4 py-6 lg:px-8">
+        <div class="col-span-3 lg:col-span-5 h-full">
+            <div class="h-full px-4 py-6 lg:px-8 h-full">
                 <slot />
             </div>
         </div>
