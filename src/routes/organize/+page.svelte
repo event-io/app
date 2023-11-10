@@ -13,6 +13,9 @@
         Lista degli eventi
     </p>
     <div class="space-y-4 mt-4 p-10 rounded-xl bg-white h-full">
+        <div class="w-full h-[100px] b">
+
+        </div>
         {#each data.events as event (event.id)}
             <EventCardOrg {event}/>
         {/each}
