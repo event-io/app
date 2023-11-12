@@ -1,6 +1,5 @@
 <script lang="ts">
-    import EventCard from "$components/event-card.svelte";
-
+    import EventCard from "$components/custom/event-card/event-card.svelte";
     import type {PageData} from "$types";
 
     export let data: PageData

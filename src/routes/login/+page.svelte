@@ -1,6 +1,6 @@
 <script type="ts">
-    import LoginForm from "$components/login-form.svelte";
-    import { addToast } from "$components/toaster.svelte";
+    import LoginForm from "$components/form/login-form.svelte";
+    import { addToast } from "$components/ui/toaster/toaster.svelte";
 
     function onLoggedHandler() {
         addToast({
