@@ -1,5 +1,5 @@
-import db from '$lib/api/db.ts';
-import type {PageLoad} from "./$types";
+import db from '$lib/api/db';
+import type { PageLoad } from '$types';
 
 export const load: PageLoad = async ({params}) => {
     return {

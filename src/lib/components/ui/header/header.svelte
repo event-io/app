@@ -1,8 +1,15 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import * as Avatar from "$lib/components/ui/avatar";
-
-
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+	import { redirect } from "@sveltejs/kit";
+	import { RefreshCcw, UserCircle } from "lucide-svelte";
+	import { onMount } from "svelte";
+
+  function switchView() {
+    if (window.location.pathname.includes('hub')) goto('/organize/events');
+    else goto('/hub/events');
+  }
 
 </script>
 
@@ -21,12 +28,14 @@
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Group>
-            <DropdownMenu.Label>My Account</DropdownMenu.Label>
+            <DropdownMenu.Item on:click={switchView}>
+              <RefreshCcw size={20} strokeWidth={1.5} class="mr-2"/>
+              {window.location.pathname.includes('hub') ? 'Switch to Organize' : 'Switch to Hub'}
+            </DropdownMenu.Item>
             <DropdownMenu.Separator />
-            <DropdownMenu.Item>Profile</DropdownMenu.Item>
-            <DropdownMenu.Item>Billing</DropdownMenu.Item>
-            <DropdownMenu.Item>Team</DropdownMenu.Item>
-            <DropdownMenu.Item>Subscription</DropdownMenu.Item>
+            <DropdownMenu.Item>
+              <UserCircle size={20} strokeWidth={1.5} class="mr-2"/> <span>Profile</span>
+            </DropdownMenu.Item>
           </DropdownMenu.Group>
         </DropdownMenu.Content>
       </DropdownMenu.Root>

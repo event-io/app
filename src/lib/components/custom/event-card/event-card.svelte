@@ -6,7 +6,7 @@
 </script>
 
 <div class="w-[280px] h-[400px] relative">
-    <a href="/events/{event?.id}">
+    <a href="/hub/events/{event?.id}">
         <img 
         alt="Card Content"
         class="w-full h-full object-cover rounded-xl shadow cursor-pointer brightness-75 hover:brightness-100 transition-all"
