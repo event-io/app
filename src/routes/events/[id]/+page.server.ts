@@ -6,4 +6,3 @@ export const load: PageLoad = async ({params}) => {
         event: await db.events.getAll(params.id)
     }
 }
-

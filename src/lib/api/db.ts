@@ -59,5 +59,6 @@ export default {
             if (error) throw error
             return data
         }
-    }
+    },
+    
 }
