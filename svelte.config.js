@@ -20,7 +20,7 @@ const config = {
 			$types: './.svelte-kit/types/src/routes/$types',
 			$lib: "./src/lib",
 			$components: "./src/lib/components",
-		}
+		},
 	},
 };
 export default config;

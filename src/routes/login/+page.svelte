@@ -11,6 +11,9 @@
             }
         })
     }
+
 </script>
 
-<LoginForm on:logged={onLoggedHandler}/>
+<body class="font-inter skin-default">
+  <LoginForm on:logged={onLoggedHandler}/>
+</body>
