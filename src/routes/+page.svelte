@@ -1,14 +1,30 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
 
-<script>
-    import { onMount } from 'svelte';
-    import { _events } from "$lib/index.ts";
+    import type { PageData } from "./$types";
+    import {onMount} from "svelte";
+    import {goto} from "$app/navigation";
 
-    let events = [];
+    import { addToast } from '$components/ui/toaster/toaster.svelte'
+
+
+    export let data: PageData;
 
     onMount(() => {
-        console.log('The component has mounted');
-        events = await _events.all();
+        if(!data.session) {
+            goto('/login');
+        } else {
+            sessionFound(data.session.user.user_metadata.name);
+            goto('/events');
+        }
     });
+
+    function sessionFound(user: string) {
+        addToast({
+            data: {
+                title: `Ciao ${user}, come va? 👋`,
+                description: "Tra qualche secondo ti riporto nella pagina iniziale...",
+                color: 'bg-success',
+            }
+        })
+    }
 </script>
