@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.css";
+    import "../../app.css";
     import Toaster from "$components/ui/toaster/toaster.svelte";
     import Header from "$components/ui/header/header.svelte";
 </script>

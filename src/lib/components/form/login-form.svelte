@@ -34,7 +34,7 @@
         if (data.session && data.user) {
             console.log(data.session)
             dispatch('logged')
-            goto('/events')
+            goto('/hub/events')
         }
     }
     const dateNow = new Date().getFullYear();
@@ -66,7 +66,7 @@
                 <div class="text-center 2xl:mb-10 mb-4">
                 <span class="font-medium text-4xl">Accedi</span>
                 <div class="text-slate-500 text-base pt-4">
-                    Benvenuto, qui siamo tutti amici &#128540; <br/>Accedi con il tuo account e facci sapere chi sei.
+                    Benvenut* o bentornat*, qui siamo tutti amici &#128540; <br/>Accedi con il tuo account e facci sapere chi sei.
                 </div>
                 </div>
                 <!-- BEGIN: Login Form -->
@@ -75,6 +75,7 @@
                            data-melt-part="root"
                            class="block capitalize form-label" 
                            for="email">email</label>
+
                     <div class="relative ">
                     <input type="email"
                            id="email" 
@@ -86,12 +87,10 @@
                     </div>
                 </div>
                 <div class="fromGroup py-5">
-                    <label class="block capitalize form-labez" 
-                           for="password"
-                           use:melt={$root}
-                           data-melt-part="root">
-                        Password
-                    </label>
+                    <label use:melt={$root}
+                           data-melt-part="root"
+                           class="block capitalize form-label" 
+                           for="password">Password</label>
                     <div class="relative">
                     <input type="password" 
                            name="password"
@@ -111,9 +110,9 @@
                     </label>
                     <a class="text-sm text-slate-800 dark:text-slate-400 leading-6 font-medium" href="forget-password-one.html">Password dimenticata</a>
                 </div> -->
-                <button class="btn btn-dark block w-full text-center my-5">
+                <button class="btn btn-dark w-full text-center my-5 flex items-center justify-center">
                     {#if isLoading}
-                    <Loader2 class="animate-spin"/>
+                    <Loader2 class="animate-spin"/> <span class="ps-3">Controllo la lista &#129488;</span>
                     {:else}
                         <span>Accedi</span>
                     {/if}
@@ -170,52 +169,3 @@
         </div>
     </div>
 </form>
-<!-- <form on:submit={handleLogin}>
-    <div class="flex flex-col items-start justify-center mb-5">
-        <label
-                use:melt={$root}
-                for="email"
-                class="mb-0.5 font-medium text-magnum-900"
-                data-melt-part="root"
-        >
-            <span>Email</span>
-        </label>
-        <input
-                type="text"
-                id="email"
-                class="h-10 w-[240px] rounded-md px-3 py-2 text-magnum-700 shadow"
-                placeholder="email@eventio.com"
-                bind:value={email}
-                required
-        />
-    </div>
-    <div class="flex flex-col items-start justify-center mb-5">
-        <label
-                use:melt={$root}
-                for="email"
-                class="mb-0.5 font-medium text-magnum-900"
-                data-melt-part="root"
-        >
-            <span>Password</span>
-        </label>
-        <input
-                type="password"
-                id="password"
-                class="h-10 w-[240px] rounded-md px-3 py-2 text-magnum-700 shadow"
-                bind:value={password}
-                required
-        />
-    </div>
-    <button type="submit" class="font-bold px-4 py-2 rounded bg-accent text-background">
-        {#if isLoading}
-            <Loader2 class="animate-spin"/>
-        {:else}
-            <span>Login</span>
-        {/if}
-    </button>
-</form>
-<div class="font-medium">
-    <p>
-        Don't have an account yet? <a class="text-accent" href="/signup">👉 Signup</a>
-    </p>
-</div> -->
