@@ -13,6 +13,7 @@
     import {goto} from "$app/navigation";
     import { createLabel, melt } from '@melt-ui/svelte';
     import {Loader2} from 'lucide-svelte';
+    import {createEventDispatcher} from "svelte";
 
     const {
         elements: { root },
@@ -22,6 +23,7 @@
     let email: string = '';
     let password: string = '';
     let isLoading: boolean = false;
+    const dispatch = createEventDispatcher();
 
     async function handleSignup(event: Event) {
         event.preventDefault();
@@ -38,6 +40,7 @@
         }
 
         if (data.user) {
+            dispatch("registered");
             goto('/');
         }
     }

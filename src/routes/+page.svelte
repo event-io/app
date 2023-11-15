@@ -21,8 +21,8 @@
     function sessionFound(user: string) {
         addToast({
             data: {
-                title: `Welcome back, ${user}! 👋`,
-                description: "You will be redirected in a few seconds...",
+                title: `Ciao ${user}, come va? 👋`,
+                description: "Tra qualche secondo ti riporto nella pagina iniziale...",
                 color: 'bg-success',
             }
         })
